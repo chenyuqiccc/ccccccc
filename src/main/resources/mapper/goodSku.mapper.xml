@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.day0328.goods.entity.GoodSkuMapper">
+    <resultMap id="GoodSkuMap" type="com.qianfeng.day0328.goods.entity.GoodSku">
+        <id column="sku_id" property="skuId" javaType="java.lang.String"></id>
+        <result column="sku_name" property="skuName" javaType="java.lang.String"></result>
+        <result column="sku_cost" property="skuCost" javaType="java.lang.String"></result>
+        <result column="sku_price" property="skuPrice" javaType="java.lang.String"></result>
+        <result column="sku_pmoney" property="skuPmoney" javaType="java.lang.String"></result>
+        <result column="good_id" property="goodId" javaType="java.lang.String"></result>
+        <result column="order_no" property="orderNo" javaType="java.lang.Integer"></result>
+        <result column="service_money" property="serviceMoney" javaType="java.lang.String"></result>
+        <association property="good" javaType="com.qianfeng.day0328.goods.entity.Good">
+            <id property="goodId" column="good_id"></id>
+            <result property="goodName" column="good_name"></result>
+            <result property="customerId" column="customer_id"></result>
+            <result property="goodPic" column="good_pic"></result>
+            <result property="goodPic1" column="good_pic2"></result>
+            <result property="goodPic2" column="good_pic3"></result>
+            <result property="promoteDesc" column="promote_desc"></result>
+            <result property="skuTitle" column="sku_title"></result>
+            <result property="skuCost" column="sku_cost"></result>
+            <result property="skuPrice" column="sku_price"></result>
+            <result property="skuPmoney" column="sku_pmoney"></result>
+            <result property="copyIds" column="copy_ids"></result>
+            <result property="copyDesc" column="copy_desc"></result>
+            <result property="forwardLink" column="forward_link"></result>
+            <result property="orderNo" column="order_no"></result>
+            <result property="typeId" column="type_id"></result>
+            <result property="tags" column="tags"></result>
+            <result property="state" column="state"></result>
+            <result property="createTime" column="create_time"></result>
+            <result property="toped" column="toped"></result>
+            <result property="recomed" column="recomed"></result>
+            <result property="topedTime" column="toped_time"></result>
+            <result property="recomedTime" column="recomed_time"></result>
+            <result property="spcId" column="spc_id"></result>
+            <result property="zonId" column="zon_id"></result>
+            <result property="sellNum" column="sell_num"></result>
+            <result property="website" column="website"></result>
+            <result property="iswxpay" column="iswxpay"></result>
+            <result property="isfdfk" column="isfdfk"></result>
+            <result property="leixingId" column="leixing_id"></result>
+            <result property="kfqq" column="kfqq"></result>
+        </association>
+    </resultMap>
+
+    <sql id="goodSku">
+        sku_id,sku_name,sku_cost,sku_price,sku_pmoney,good_id,order_no,service_money
+    </sql>
+
+    <!--<insert id="sava">
+        INSERT INTO wxb_good_sku(sku_name, sku_cost, sku_price, sku_pmoney, good_id, order_no, service_money) VALUE
+        (#{skuName},#{skuCost},#{skuPrice},#{skuPmoney},#{goodId},#{orderNo},#{serviceMoney})
+    </insert>-->
+
+    <select id="findAll" resultMap="GoodSkuMap">
+        SELECT
+        <include refid="goodSku"></include>
+        FROM wxb_good_sku
+    </select>
+
+    <select id="findById" resultMap="GoodSkuMap">
+        SELECT
+        <include refid="goodSku"></include>
+        FROM wxb_good_sku
+        WHERE sku_id = #{skuId}
+    </select>
+
+    <select id="delete">
+         DELETE FROM wxb_good_sku
+         WHERE sku_id = #{skuId}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO wxb_good_sku
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sukId != null">
+                suk_id,
+            </if>
+            <if test="sukName != null">
+                sku_name,
+            </if>
+            <if test="sukCost != null">
+                sku_cost,
+            </if>
+            <if test="skuPrice != null">
+                sku_price,
+            </if>
+            <if test="sukPmoney != null">
+                sku_pmoney,
+            </if>
+            <if test="goodId != null">
+                good_id,
+            </if>
+            <if test="orderNo != null">
+                order_no,
+            </if>
+            <if test="serviceMoney != null">
+                service_money,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sukId != null">
+                #{sukId},
+            </if>
+            <if test="sukName != null">
+                #{sukName},
+            </if>
+            <if test="sukCost != null">
+                #{sukCost},
+            </if>
+            <if test="skuPrice != null">
+                #{skuPrice},
+            </if>
+            <if test="sukPmoney != null">
+                #{sukPmoney},
+            </if>
+            <if test="goodId != null">
+                #{goodId},
+            </if>
+            <if test="orderNo != null">
+                #{orderNo},
+            </if>
+            <if test="serviceMoney != null">
+                #{serviceMoney},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update">
+        UPDATE wxb_good_sku
+        <set>
+            <if test="sukId != null">
+                suk_id = #{sukId},
+            </if>
+            <if test="sukName != null">
+                suk_name = #{sukName},
+            </if>
+            <if test="sukCost != null">
+                suk_cost = #{sukCost},
+            </if>
+            <if test="skuPrice != null">
+                sku_price = #{skuPrice},
+            </if>
+            <if test="sukPmoney != null">
+                suk_pmoney = #{sukPmoney},
+            </if>
+            <if test="goodId != null">
+                good_id = #{goodId},
+            </if>
+            <if test="orderNo != null">
+                order_no = #{orderNo},
+            </if>
+            <if test="serviceMoney != null">
+                service_money = #{serviceMoney},
+            </if>
+        </set>
+        WHERE sku_id = #{skuId}
+    </update>
+
+    <select id="queryGoodSkuAndGoog" resultMap="GoodSkuMap">
+        SELECT * from wxb_good a JOIN wxb_good_sku b ON a.good_id = b.good_id AND a.good_id=5;
+    </select>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.3">
+    <root id="1"/>
+    <schema id="2" parent="1" name="1801_1">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="1807"/>
+    <schema id="4" parent="1" name="1808"/>
+    <schema id="5" parent="1" name="aaa"/>
+    <schema id="6" parent="1" name="aaaa"/>
+    <schema id="7" parent="1" name="abc"/>
+    <schema id="8" parent="1" name="act_1807"/>
+    <schema id="9" parent="1" name="atest"/>
+    <schema id="10" parent="1" name="car"/>
+    <schema id="11" parent="1" name="chen"/>
+    <schema id="12" parent="1" name="chenyu"/>
+    <schema id="13" parent="1" name="company"/>
+    <schema id="14" parent="1" name="day0221"/>
+    <schema id="15" parent="1" name="engagement"/>
+    <schema id="16" parent="1" name="fxmall"/>
+    <schema id="17" parent="1" name="heros"/>
+    <schema id="18" parent="1" name="hunlihui"/>
+    <schema id="19" parent="1" name="information_schema"/>
+    <schema id="20" parent="1" name="mobiles"/>
+    <schema id="21" parent="1" name="mysql"/>
+    <schema id="22" parent="1" name="performance_schema"/>
+    <schema id="23" parent="1" name="product"/>
+    <schema id="24" parent="1" name="qi"/>
+    <schema id="25" parent="1" name="school"/>
+    <schema id="26" parent="1" name="student"/>
+    <schema id="27" parent="1" name="sys"/>
+    <schema id="28" parent="1" name="yu"/>
+  </database-model>
+</dataSource>
