@@ -25,4 +25,17 @@ public class GoodsDAOImpl implements IGoodsDAO{
         goodsMapper.insert(good);
         session.commit();
     }
+
+    @Override
+    public void delete(String goodId) throws Exception {
+        SqlSession session = MyBatisSessionFactoryUtils.getSession();
+        GoodsMapper goodsMapper = session.getMapper(GoodsMapper.class);
+        goodsMapper.delete(goodId);
+        session.commit();
+    }
+
+    @Override
+    public List<Good> finAll() throws Exception {
+        return null;
+    }
 }

@@ -21,7 +21,7 @@ public class GoodsServlet extends HttpServlet{
     public void doGet(HttpServletRequest request , HttpServletResponse response)throws ServletException , IOException{
         String pageStr = request.getParameter("page");
         try {
-            pageStr = pageStr == null?"1":pageStr;
+            pageStr = (pageStr == null?"1":pageStr);
             List<Good> goodList =
                     goodsService.queryGoodByPage(Integer.parseInt(pageStr));
             request.setAttribute("goodsList",goodList);
@@ -33,5 +33,4 @@ public class GoodsServlet extends HttpServlet{
             //不能处理就跳转到错误提示页面
         }
     }
-    
 }

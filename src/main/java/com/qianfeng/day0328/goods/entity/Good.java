@@ -1,9 +1,6 @@
 package com.qianfeng.day0328.goods.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -32,7 +29,6 @@ public class Good implements Serializable{
     private String typeId;
     private String tags;
     private Integer state;
-
     private Date createTime;
     private Integer toped;
     private Integer recomed;
@@ -47,4 +43,5 @@ public class Good implements Serializable{
     private Integer leixingId;
     private String kfqq;
     private List<GoodSku> goodSkuList;
+
 }

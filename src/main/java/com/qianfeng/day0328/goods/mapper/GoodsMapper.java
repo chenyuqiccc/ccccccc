@@ -8,4 +8,6 @@ import java.util.List;
 public interface GoodsMapper {
     List<Good> queryGoodByPage (@Param("index") Integer index , @Param("size") Integer size);
     void insert (Good good);
+    void delete (String goodId);
+    List<Good> findAll();
 }
